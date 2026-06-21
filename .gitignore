@@ -8,3 +8,5 @@ next-dev.log
 next-dev.err.log
 *.tsbuildinfo
 *.log
+
+.vercel

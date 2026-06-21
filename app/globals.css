@@ -12,6 +12,11 @@ body {
   color: #14313d;
 }
 
+.dark body {
+  background: #07181f;
+  color: #e9fbff;
+}
+
 ::selection {
   background: #b9f3f8;
   color: #114552;
@@ -22,6 +27,11 @@ body {
   border: 1px solid rgba(125, 227, 235, 0.34);
   box-shadow: 0 20px 70px rgba(20, 49, 61, 0.12);
   backdrop-filter: blur(20px);
+}
+
+.dark .glass-panel {
+  background: rgba(10, 32, 40, 0.82);
+  border-color: rgba(125, 227, 235, 0.22);
 }
 
 .focus-ring {

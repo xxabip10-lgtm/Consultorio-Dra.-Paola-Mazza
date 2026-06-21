@@ -21,3 +21,24 @@ create table if not exists site_settings (
   value jsonb not null,
   updated_at timestamptz not null default now()
 );
+
+create table if not exists services (
+  id text primary key,
+  title text not null,
+  active boolean not null default true,
+  sort_order int not null default 0
+);
+
+create table if not exists gallery_images (
+  id text primary key,
+  title text not null,
+  src text not null,
+  active boolean not null default true,
+  sort_order int not null default 0
+);
+
+create table if not exists whatsapp_requests (
+  id uuid primary key default gen_random_uuid(),
+  label text not null,
+  created_at timestamptz not null default now()
+);
