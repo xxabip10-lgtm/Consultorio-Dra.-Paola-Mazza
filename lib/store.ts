@@ -287,26 +287,12 @@ export async function saveReview(review: Omit<Review, "id" | "createdAt">) {
   };
 
   if (supabase) {
-    const { data } = await supabase
-      .from("reviews")
-      .insert({
-        name: payload.name,
-        rating: payload.rating,
-        comment: payload.comment,
-        approved: payload.approved
-      })
-      .select("id,name,rating,comment,approved,created_at")
-      .single();
-    if (data) {
-      return {
-        id: data.id,
-        name: data.name,
-        rating: data.rating,
-        comment: data.comment,
-        approved: data.approved,
-        createdAt: data.created_at
-      } as Review;
-    }
+    await supabase.from("reviews").insert({
+      name: payload.name,
+      rating: payload.rating,
+      comment: payload.comment,
+      approved: payload.approved
+    });
   }
 
   const reviews = readLocal<Review[]>(keys.reviews, initialReviews);
